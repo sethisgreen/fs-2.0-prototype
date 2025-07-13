@@ -10,3 +10,8 @@ python-dotenv==1.0.0  # Environment variables loader
 structlog==23.2.0  # Structured logging
 pytest==7.4.2  # Testing framework
 coverage==7.3.1  # Test coverage reporting 
+black==23.9.1  # Code formatter
+isort==5.12.0  # Import sorter
+flake8==6.1.0  # Code style checker
+mypy==1.5.1  # Static type checker
+pre-commit==3.4.0  # Hook manager 
