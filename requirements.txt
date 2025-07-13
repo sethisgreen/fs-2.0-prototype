@@ -1,0 +1,13 @@
+
+
+# Core dependencies for MCP servers and tools
+mcp-kit==0.2.1  # MCP tooling for servers and proxies
+httpx  # Async HTTP client for API calls
+async-lru  # Async caching
+pydantic  # Data validation and schemas
+rapidfuzz  # Fuzzy matching for deduplication
+retrying  # Retry logic for API errors
+python-dotenv  # Environment variables
+pytest  # Testing framework
+coverage  # Test coverage reporting
+structlog  # Structured logging 
