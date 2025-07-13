@@ -1,13 +1,17 @@
 
 
-# Core dependencies for MCP servers and tools
 mcp-kit==0.2.1  # MCP tooling for servers and proxies
-httpx  # Async HTTP client for API calls
-async-lru  # Async caching
-pydantic  # Data validation and schemas
-rapidfuzz  # Fuzzy matching for deduplication
-retrying  # Retry logic for API errors
-python-dotenv  # Environment variables
-pytest  # Testing framework
-coverage  # Test coverage reporting
-structlog  # Structured logging 
+httpx[http2]==0.25.0  # Async HTTP client for API calls, HTTP/2 support
+async-lru==2.0.4  # Async caching utilities
+pydantic==1.10.13  # Data validation and schemas
+rapidfuzz==3.6.1  # Fuzzy matching for deduplication
+retrying==1.3.4  # Retry logic for API errors
+python-dotenv==1.0.0  # Environment variables loader
+structlog==23.2.0  # Structured logging
+pytest==7.4.2  # Testing framework
+coverage==7.3.1  # Test coverage reporting 
+black==23.9.1  # Code formatter
+isort==5.12.0  # Import sorter
+flake8==6.1.0  # Code style checker
+mypy==1.5.1  # Static type checker
+pre-commit==3.4.0  # Hook manager 
