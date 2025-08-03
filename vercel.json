@@ -7,12 +7,20 @@
       "config": {
         "runtime": "python3.10"
       }
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/oauth/callback",
       "dest": "/public/oauth/callback.html"
+    },
+    {
+      "src": "/test-oauth.html",
+      "dest": "/public/test-oauth.html"
     },
     {
       "src": "/api/collections",
