@@ -1,6 +1,5 @@
 
-
-mcp-kit==0.2.1  # MCP tooling for servers and proxies
+# mcp-kit==0.2.1  # MCP tooling for servers and proxies (unavailable on PyPI, re-enable when available)
 httpx[http2]==0.25.0  # Async HTTP client for API calls, HTTP/2 support
 async-lru==2.0.4  # Async caching utilities
 pydantic==1.10.13  # Data validation and schemas
