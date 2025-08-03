@@ -17,7 +17,10 @@ async def validate_familysearch_access():
     """Validate FamilySearch API access with unauthenticated sessions."""
     print("🔍 Validating FamilySearch API Access...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'b0019MWRSQE2VBRACTDD')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return False
     token_url = "https://identbeta.familysearch.org/cis-web/oauth2/v3/token"
     
     data = {

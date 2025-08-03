@@ -20,7 +20,10 @@ async def test_unauthenticated_session_with_ip():
     """Test unauthenticated session with IP address parameter."""
     print("🔍 Testing Unauthenticated Session with IP Address...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None
     token_url = "https://identbeta.familysearch.org/cis-web/oauth2/v3/token"
     
     data = {
@@ -56,7 +59,10 @@ async def test_authorization_without_redirect_browser():
     """Test authorization URL without redirect_uri in browser."""
     print("\n🔍 Testing Authorization URL Without Redirect (Browser Test)...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None
     auth_base_url = "https://identbeta.familysearch.org/cis-web/oauth2/v3"
     
     # Test authorization without redirect_uri
@@ -79,7 +85,10 @@ async def test_authorization_with_localhost_browser():
     """Test authorization URL with localhost redirect in browser."""
     print("\n🔍 Testing Authorization URL With Localhost (Browser Test)...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None
     auth_base_url = "https://identbeta.familysearch.org/cis-web/oauth2/v3"
     
     # Test authorization with localhost redirect
@@ -125,7 +134,10 @@ async def test_curl_commands():
     """Generate curl commands for manual testing."""
     print("\n🔍 Generating Manual Test Commands...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None
     auth_base_url = "https://identbeta.familysearch.org/cis-web/oauth2/v3"
     token_url = "https://identbeta.familysearch.org/cis-web/oauth2/v3/token"
     

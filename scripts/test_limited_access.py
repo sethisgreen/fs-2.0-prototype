@@ -119,7 +119,10 @@ async def test_unauthenticated_session_token():
     """Test getting an unauthenticated session token."""
     print("\n🔍 Testing Unauthenticated Session Token...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None
     token_url = "https://identbeta.familysearch.org/cis-web/oauth2/v3/token"
     
     data = {

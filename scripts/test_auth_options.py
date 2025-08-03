@@ -20,7 +20,10 @@ def test_authorization_without_redirect():
     """Test authorization without providing a redirect_uri parameter."""
     print("🔍 Testing Authorization WITHOUT redirect_uri...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None
     auth_base_url = os.getenv('FAMILYSEARCH_AUTH_BASE_URL', 'https://identbeta.familysearch.org/cis-web/oauth2/v3')
     
     # Construct authorization URL without redirect_uri
@@ -42,7 +45,10 @@ def test_authorization_with_localhost():
     """Test authorization with localhost redirect URI."""
     print("\n🔍 Testing Authorization WITH localhost redirect_uri...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None
     auth_base_url = os.getenv('FAMILYSEARCH_AUTH_BASE_URL', 'https://identbeta.familysearch.org/cis-web/oauth2/v3')
     
     # Construct authorization URL with localhost redirect
@@ -65,7 +71,10 @@ def test_unauthenticated_session():
     """Test unauthenticated session grant type."""
     print("\n🔍 Testing Unauthenticated Session Grant...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None, None
     token_url = os.getenv('FAMILYSEARCH_TOKEN_URL', 'https://identbeta.familysearch.org/cis-web/oauth2/v3/token')
     
     # Test unauthenticated session grant
@@ -84,7 +93,10 @@ def test_password_grant():
     """Test password grant type (if credentials are available)."""
     print("\n🔍 Testing Password Grant...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None, None
     username = os.getenv('FAMILYSEARCH_USERNAME')
     password = os.getenv('FAMILYSEARCH_PASSWORD')
     token_url = os.getenv('FAMILYSEARCH_TOKEN_URL', 'https://identbeta.familysearch.org/cis-web/oauth2/v3/token')
@@ -132,7 +144,10 @@ def test_curl_commands():
     """Generate test curl commands for manual testing."""
     print("\n🔍 Generating Test Commands...")
     
-    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID', 'test_client_id')
+    client_id = os.getenv('FAMILYSEARCH_CLIENT_ID')
+    if not client_id:
+        print("❌ FAMILYSEARCH_CLIENT_ID not set in environment")
+        return None
     auth_base_url = os.getenv('FAMILYSEARCH_AUTH_BASE_URL', 'https://identbeta.familysearch.org/cis-web/oauth2/v3')
     token_url = os.getenv('FAMILYSEARCH_TOKEN_URL', 'https://identbeta.familysearch.org/cis-web/oauth2/v3/token')
     

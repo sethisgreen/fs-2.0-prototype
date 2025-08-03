@@ -1,56 +1,135 @@
+# Environment variables and secrets
+.env
+.env.local
+.env.production
+.env.staging
+*.env
 
+# API Keys and Credentials
+*secret*
+*key*
+*credential*
+*token*
+*password*
 
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
+*$py.class
+*.so
 .Python
-env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
 .venv/
-pip-log.txt
-pip-delete-this-directory.txt
+env/
+ENV/
+env.bak/
+venv.bak/
 
-# Node.js / Next.js
-node_modules/
-.npm
-.next/
-.out/
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Logs
-logs
 *.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Node modules (for frontend)
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.sublime-project
-*.sublime-workspace
+# Build outputs
+build/
+dist/
+*.tgz
+*.tar.gz
 
-# Docker
-*.dockerignore
-Dockerfile*
-docker-compose*
+# Local configuration
+config.local.*
+settings.local.*
 
-# Misc
-*.swp
-tmp
-.temp
-.tmp
+# Test outputs
+test-results/
+coverage/
+.nyc_output/
+
+# Documentation builds
+docs/_build/
+site/
+
+# Backup files
 *.bak
-*.gho
-*.ori
-*.orig
-*.tmp 
+*.backup
+*~
+
+# Sensitive data files
+credentials.json
+secrets.json
+keys.json
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# FamilySearch specific
+familysearch_credentials.json
+fs_credentials.json
+*.fs_cred
+
+# MCP specific
+mcp_credentials.json
+*.mcp_cred
+
+# Local development
+.local/
+dev/
+development/ 

@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  familysearch-api:
+    build: ./servers/familysearch-api
+    ports:
+      - "8001:8000"
+    environment:
+      - FAMILYSEARCH_CLIENT_ID=${FAMILYSEARCH_CLIENT_ID}
+      - FAMILYSEARCH_REDIRECT_URI=${FAMILYSEARCH_REDIRECT_URI}
+    volumes:
+      - ./servers/familysearch-api:/app
+
+  records-router:
+    build: ./servers/records-router
+    ports:
+      - "8002:8000"
+    environment:
+      - FAMILYSEARCH_MCP_URL=http://familysearch-api:8000/mcp
+    volumes:
+      - ./servers/records-router:/app
+    depends_on:
+      - familysearch-api
