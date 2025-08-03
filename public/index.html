@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FS Agent - AI-Powered Genealogy Research Assistant</title>
+    <meta
+      name="description"
+      content="Revolutionary AI agent for FamilySearch that automates genealogical research, discovers ancestors, and builds family trees with unprecedented accuracy."
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="FS Agent - AI-Powered Genealogy Research Assistant"
+    />
+    <meta
+      property="og:description"
+      content="Revolutionary AI agent for FamilySearch that automates genealogical research, discovers ancestors, and builds family trees with unprecedented accuracy."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fs-agent.com" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="FS Agent - AI-Powered Genealogy Research Assistant"
+    />
+    <meta
+      name="twitter:description"
+      content="Revolutionary AI agent for FamilySearch that automates genealogical research, discovers ancestors, and builds family trees with unprecedented accuracy."
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 4rem 0;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* CTA Buttons */
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      /* Features Section */
+      .features {
+        background: white;
+        padding: 4rem 0;
+        margin: 2rem 0;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .features h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #333;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .feature-card {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .feature-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Coming Soon Section */
+      .coming-soon {
+        text-align: center;
+        padding: 3rem 0;
+        color: white;
+      }
+
+      .coming-soon h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .status-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 2rem 0;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate {
+        animation: fadeInUp 0.8s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="animate">
+        <div class="logo">🔍 FS Agent</div>
+        <div class="tagline">AI-Powered Genealogy Research Assistant</div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero animate">
+        <h1>Revolutionize Your Family History Research</h1>
+        <p>
+          Discover ancestors, build family trees, and unlock your genealogical
+          past with the world's most advanced AI-powered FamilySearch assistant.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="#coming-soon" class="btn btn-primary">Join Waitlist</a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features">
+        <h2>🚀 What FS Agent Does</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>AI-Powered Research</h3>
+            <p>
+              Advanced artificial intelligence that automatically discovers
+              ancestors, analyzes records, and builds comprehensive family trees
+              with unprecedented accuracy.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Smart Record Analysis</h3>
+            <p>
+              Intelligent document processing that extracts names, dates,
+              places, and relationships from historical records, photos, and
+              family documents.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🌳</div>
+            <h3>Family Tree Building</h3>
+            <p>
+              Automatically constructs and expands your family tree by
+              connecting relatives across multiple generations and historical
+              periods.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Research Insights</h3>
+            <p>
+              Get intelligent recommendations for next research steps, identify
+              gaps in your family history, and discover new research
+              opportunities.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔗</div>
+            <h3>FamilySearch Integration</h3>
+            <p>
+              Seamlessly connects with FamilySearch's vast database of
+              historical records, photos, and family trees for comprehensive
+              research.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Lightning Fast</h3>
+            <p>
+              Process thousands of records in seconds, analyze complex family
+              relationships, and generate insights faster than traditional
+              research methods.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coming Soon Section -->
+      <section id="coming-soon" class="coming-soon">
+        <div class="status-badge">🚀 Coming Soon</div>
+        <h2>Be Among the First to Experience the Future of Genealogy</h2>
+        <p>
+          We're building something revolutionary. Join our exclusive waitlist to
+          get early access and special founding member benefits.
+        </p>
+
+        <div class="cta-buttons">
+          <a
+            href="mailto:hello@fs-agent.com?subject=Waitlist%20Signup"
+            class="btn btn-primary"
+            >Join Waitlist</a
+          >
+          <a
+            href="https://github.com/sethisgreen/fs-2.0-prototype"
+            class="btn btn-secondary"
+            >View on GitHub</a
+          >
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-links">
+          <a href="https://github.com/sethisgreen/fs-2.0-prototype">GitHub</a>
+          <a href="mailto:hello@fs-agent.com">Contact</a>
+          <a href="/test-oauth.html">Test OAuth</a>
+        </div>
+        <p>&copy; 2025 FS Agent. Built with ❤️ for the genealogy community.</p>
+      </footer>
+    </div>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all feature cards
+      document.querySelectorAll(".feature-card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(card);
+      });
+
+      // Add some interactive elements
+      document.querySelectorAll(".btn").forEach((btn) => {
+        btn.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-2px) scale(1.02)";
+        });
+
+        btn.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0) scale(1)";
+        });
+      });
+    </script>
+  </body>
+</html>
