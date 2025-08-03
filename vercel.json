@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/oauth-callback.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.10"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/oauth/callback",
+      "dest": "/api/oauth-callback"
+    },
+    {
+      "src": "/api/collections",
+      "dest": "/api/oauth-callback"
+    },
+    {
+      "src": "/api/health",
+      "dest": "/api/oauth-callback"
+    }
+  ],
+  "env": {
+    "FAMILYSEARCH_AUTH_BASE_URL": "https://identbeta.familysearch.org/cis-web/oauth2/v3",
+    "FAMILYSEARCH_TOKEN_URL": "https://identbeta.familysearch.org/cis-web/oauth2/v3/token"
+  }
+} 
