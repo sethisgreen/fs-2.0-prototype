@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/oauth/callback",
-      "dest": "/api/oauth-callback"
+      "dest": "/public/oauth/callback.html"
     },
     {
       "src": "/api/collections",
