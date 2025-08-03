@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FamilySearch OAuth Callback</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .code {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+        .info {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 FamilySearch OAuth Callback</h1>
+        
+        <div id="content">
+            <p class="success">✅ OAuth callback received successfully!</p>
+            
+            <div class="info">
+                <h3>📋 Callback Details:</h3>
+                <p><strong>Domain:</strong> fs-agent.com</p>
+                <p><strong>Status:</strong> <span class="success">Active</span></p>
+                <p><strong>Redirect URI:</strong> https://fs-agent.com/oauth/callback</p>
+            </div>
+
+            <div id="params">
+                <h3>🔍 URL Parameters:</h3>
+                <div id="paramList"></div>
+            </div>
+
+            <div class="info">
+                <h3>📝 Next Steps:</h3>
+                <ol>
+                    <li>✅ OAuth callback route is working</li>
+                    <li>✅ Redirect URI is registered with FamilySearch</li>
+                    <li>🔄 Exchange authorization code for access token</li>
+                    <li>🔄 Implement token storage and management</li>
+                    <li>🔄 Complete the OAuth flow</li>
+                </ol>
+            </div>
+
+            <p><em>This window can be closed. The authorization code has been captured.</em></p>
+        </div>
+    </div>
+
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const state = urlParams.get('state');
+        const error = urlParams.get('error');
+        const errorDescription = urlParams.get('error_description');
+
+        // Display parameters
+        const paramList = document.getElementById('paramList');
+        
+        if (error) {
+            document.querySelector('.success').textContent = '❌ OAuth Error';
+            document.querySelector('.success').className = 'error';
+            paramList.innerHTML = `
+                <p><strong>Error:</strong> <span class="error">${error}</span></p>
+                <p><strong>Description:</strong> ${errorDescription || 'No description provided'}</p>
+            `;
+        } else if (code) {
+            paramList.innerHTML = `
+                <p><strong>Authorization Code:</strong></p>
+                <div class="code">${code}</div>
+                ${state ? `<p><strong>State:</strong> <span class="code">${state}</span></p>` : ''}
+            `;
+            
+            // Send message to parent window if opened from popup
+            if (window.opener) {
+                window.opener.postMessage({
+                    type: 'FS_AUTH',
+                    code: code,
+                    state: state,
+                    success: true
+                }, '*');
+            }
+        } else {
+            paramList.innerHTML = '<p><em>No parameters found in URL</em></p>';
+        }
+
+        // Log for debugging
+        console.log('FamilySearch OAuth Callback:', {
+            code: code,
+            state: state,
+            error: error,
+            errorDescription: errorDescription,
+            url: window.location.href
+        });
+    </script>
+</body>
+</html> 
