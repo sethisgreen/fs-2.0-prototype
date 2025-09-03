@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "fs-js-lite": "^2.6.6"
+  }
+}

@@ -21,3 +21,12 @@ services:
       - ./servers/records-router:/app
     depends_on:
       - familysearch-api
+
+  familysearch-tools:
+    build: ./servers/familysearch-tools
+    ports:
+      - "8003:8000"
+    environment:
+      - FAMILYSEARCH_CLIENT_ID=${FAMILYSEARCH_CLIENT_ID}
+    volumes:
+      - ./servers/familysearch-tools:/app

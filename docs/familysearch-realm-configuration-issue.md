@@ -9,6 +9,7 @@
 ## 📋 **Technical Details**
 
 ### Error Details
+
 - **Error Code:** `invalid_request`
 - **Error Description:** "Validation exception. Client needs a realm configured for openid-connect"
 - **OAuth Flow:** Authorization Code Flow
@@ -16,13 +17,16 @@
 - **Redirect URI:** `https://fs-agent.com/oauth/callback`
 
 ### What We've Tested
+
 ✅ **Working:**
+
 - Redirect URI whitelisting
 - OAuth callback handling
 - Basic OAuth URL generation
 - Unauthenticated session access
 
 ❌ **Failing:**
+
 - Authorization Code Flow (realm configuration required)
 - Client Credentials Flow (not supported for public clients)
 
@@ -33,6 +37,7 @@
 **Subject:** OAuth Client Realm Configuration Issue
 
 **Message Template:**
+
 ```
 Hello FamilySearch Developer Support,
 
@@ -66,22 +71,26 @@ Best regards,
 ### 2. Alternative Approaches
 
 #### Option A: Use Unauthenticated Sessions
+
 - Continue with current unauthenticated session access
 - Limited but functional for basic API calls
 - Good for testing and development
 
 #### Option B: Request Realm Configuration
+
 - Contact FamilySearch support
 - Provide client details and use case
 - Request proper realm configuration
 
 #### Option C: Use Different OAuth Flow
+
 - Test if other grant types work
 - Explore alternative authentication methods
 
 ## 📊 **Current Working Capabilities**
 
 With unauthenticated sessions, we can access:
+
 - ✅ Collection metadata
 - ✅ Date authority information
 - ✅ Basic API structure
@@ -96,4 +105,4 @@ With unauthenticated sessions, we can access:
 
 - **FamilySearch Developer Support:** [Find contact info in developer portal]
 - **Documentation:** https://www.familysearch.org/en/developers/docs/api
-- **Developer Portal:** [Your FamilySearch developer portal URL] 
+- **Developer Portal:** [Your FamilySearch developer portal URL]
